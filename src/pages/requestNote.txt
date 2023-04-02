@@ -1,0 +1,17 @@
+2state
+sate1:progress
+initsate1:number1
+state2:requestType
+inistate2:""
+initState
+
+Request Detail:
+moi input la 1 component
+
+nut Submit: nhan chuyen sang compenent Thank you
+
+b1:nut Submit=>thank you
+b2:lam nhung component lap lai truoc(input)
+b3:state cua trang
+b4:doi state cua state 2 theo nguoi dung chon
+
