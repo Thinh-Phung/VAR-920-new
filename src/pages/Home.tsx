@@ -15,7 +15,7 @@ const Home = () => {
   return (
     <>
       <div id="header">
-        <Navbar />
+        <Navbar currentPage={"home"} />
         <div
           id="welcome-image"
           className="text-center bg-center text-sm bg-cover min-h-[fit] text-white p-[6%]"

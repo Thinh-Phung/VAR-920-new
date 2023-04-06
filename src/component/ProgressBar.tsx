@@ -3,7 +3,6 @@ import React from "react"
 const ProgressBar = ({ progress }) => {
   return (
     <>
-      {}
       <div className="flex flex-1 justify-between mx-auto w-full md:w-2/5 px-12 mt-8">
         <p
           className={`flex-shrink-0 rounded-full border h-8 w-8 text-center leading-8 ${

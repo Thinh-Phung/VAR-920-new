@@ -1,11 +1,16 @@
 import React from "react"
-import { Disclosure, Menu, Transition } from "@headlessui/react"
+import { Disclosure, Listbox, Transition } from "@headlessui/react"
 import { Fragment } from "react"
-
 import { ChevronDownIcon } from "@heroicons/react/24/outline"
-import { useState } from "react"
-
+import { useEffect } from "react"
 const FormSelect = ({ onSelect }) => {
+  useEffect(() => {
+    const use = async () => {
+      ;(await import("tw-elements")).default
+    }
+    use()
+  }, [])
+
   return (
     <>
       <div className="mx-auto w-full md:w-3/5 py-2 px-3">
@@ -14,15 +19,29 @@ const FormSelect = ({ onSelect }) => {
         </p>
         <div className="bg-white text-center pb-8 rounded-b-md text-base text-[#5C667A]">
           <p className="py-2">Type of Request</p>
-          <div className="border rounded-md mx-auto mb-2 text-start w-3/5">
+          <div className="pt-6 px-2 md:px-6 text-start">
             <select
+              data-te-select-init
               name="request-type"
               id="request-type"
+              defaultValue="Choose Below"
               onChange={(e) => onSelect(e.target.value)}
+              className="border-slate-200 rounded-md mx-auto mb-2 text-start w-full"
             >
-              <option value="none"></option>
+              <option value="none">Choose Below</option>
               <option value="assessment">Assessments</option>
               <option value="benchmark">Benchmark</option>
+              <option value="cancellation">Cancellation</option>
+              <option value="contract-status">Contract Status</option>
+              <option value="generate-reports">Generate Reports</option>
+              <option value="negotiate">Negotiate</option>
+              <option value="quotes">Quotes</option>
+              <option value="renewals">Renewals</option>
+              <option value="research">Research</option>
+              <option value="savings-analysis">Savings Analysis</option>
+              <option value="supplier-comparisons">Supplier Comparisons</option>
+              <option value="supplier-demos">Supplier Demos</option>
+              <option value="supplier-questions">Supplier Questions</option>
             </select>
           </div>
         </div>

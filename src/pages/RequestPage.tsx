@@ -22,10 +22,7 @@ import { useState } from "react"
 const RequestPage = () => {
   const [progress, setProgress] = useState(1)
   const [requestType, setRequestType] = useState("")
-
-  useEffect
-
-  function handleSelectRequestType(type) {
+  const handleSelectRequestType = (type) => {
     setProgress(2)
     setRequestType(type)
   }
@@ -35,10 +32,9 @@ const RequestPage = () => {
 
     setProgress(3)
   }
-
   return (
     <div className="bg-slate-50 h-screen">
-      <Navbar />
+      <Navbar currentPage="requests" />
       <ProgressBar progress={progress} />
       {progress === 1 && <FormSelect onSelect={handleSelectRequestType} />}
       {progress === 2 && (

@@ -5,11 +5,14 @@ import { Disclosure, Menu, Transition } from "@headlessui/react"
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline"
 import { Fragment } from "react"
 import { useState } from "react"
-const Navbar = () => {
+import { useNavigate } from "react-router-dom"
+const Navbar = ({ currentPage }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false)
+  const [chosePage, setChosePage] = useState("Home")
   const handleClick = () => {
     setIsOpenMenu(isOpenMenu === false ? true : false)
   }
+  console.log(currentPage)
   return (
     <Disclosure as="nav" className="bg-white sm:bg-[#186582]">
       {({ open }) => (
@@ -41,40 +44,51 @@ const Navbar = () => {
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:flex sm:space-x-8 text-white">
-                  {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <a
-                    href="#"
-                    className="inline-flex items-center border-b-2 border-white px-1 pt-1 text-sm font-medium"
+                    href="/home"
+                    className={`inline-flex items-center px-1 pt-1 text-sm font-medium hover:underline underline-offset-1 ${
+                      currentPage === "home" ? "underline" : ""
+                    }`}
                   >
                     Home
                   </a>
                   <a
-                    href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-thin hover:border-gray-300 hover:text-gray-700"
+                    href="/requests"
+                    className={`inline-flex items-center px-1 pt-1 text-sm font-medium hover:underline underline-offset-1 ${
+                      currentPage === "requests" ? "underline" : ""
+                    }`}
                   >
                     Request
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-thin hover:border-gray-300 hover:text-gray-700"
+                    className={`inline-flex items-center px-1 pt-1 text-sm font-medium hover:underline underline-offset-1 ${
+                      currentPage === "save" ? "underline" : ""
+                    }`}
                   >
                     Save
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-thin hover:border-gray-300 hover:text-gray-700"
+                    className={`inline-flex items-center px-1 pt-1 text-sm font-medium hover:underline underline-offset-1 ${
+                      currentPage === "buy" ? "underline" : ""
+                    }`}
                   >
                     Buy
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-thin hover:border-gray-300 hover:text-gray-700"
+                    className={`inline-flex items-center px-1 pt-1 text-sm font-medium hover:underline underline-offset-1 ${
+                      currentPage === "manager" ? "underline" : ""
+                    }`}
                   >
                     Manager
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-sm font-thin hover:border-gray-300 hover:text-gray-700"
+                    className={`inline-flex items-center px-1 pt-1 text-sm font-medium hover:underline underline-offset-1 ${
+                      currentPage === "report" ? "underline" : ""
+                    }`}
                   >
                     Report
                   </a>
@@ -148,46 +162,76 @@ const Navbar = () => {
 
           <Disclosure.Panel className="sm:hidden">
             <div className="space-y-1 pt-2 pb-4">
-              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
+              {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 " */}
               <Disclosure.Button
                 as="a"
-                href="#"
-                className="block border-l-4 border-[#186582] bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-[#2C87BF]"
+                href="/home"
+                className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500
+                ${
+                  currentPage === "home"
+                    ? "border-[#186582] text-[#2C87BF] bg-indigo-50"
+                    : ""
+                }`}
               >
                 Home
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="#"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                href="/requests"
+                className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500
+                ${
+                  currentPage === "requests"
+                    ? "border-[#186582] text-[#2C87BF] bg-indigo-50"
+                    : ""
+                }`}
               >
                 Request
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500
+                ${
+                  currentPage === "save"
+                    ? "border-[#186582] text-[#2C87BF] bg-indigo-50"
+                    : ""
+                }`}
               >
                 Save
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500
+                ${
+                  currentPage === "buy"
+                    ? "border-[#186582] text-[#2C87BF] bg-indigo-50"
+                    : ""
+                }`}
               >
                 Buy
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500
+                ${
+                  currentPage === "manager"
+                    ? "border-[#186582] text-[#2C87BF] bg-indigo-50"
+                    : ""
+                }`}
               >
                 Manager
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="#"
-                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700"
+                className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500
+                ${
+                  currentPage === "report"
+                    ? "border-[#186582] text-[#2C87BF] bg-indigo-50"
+                    : ""
+                }`}
               >
                 Report
               </Disclosure.Button>

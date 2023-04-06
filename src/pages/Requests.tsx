@@ -38,7 +38,7 @@ const Requests = () => {
   const [activeModalId, setActiveModalId] = useState(0)
   return (
     <>
-      <Navbar />
+      <Navbar currentPage={"requests"} />
       <div className="mt-12 px-0 lg:mx-auto lg:w-4/5 rounded-md border">
         <div className="py-4 border-b-4">
           <h1 className="text-base text-center font-bold leading-6 text-[#2C3A5B]">

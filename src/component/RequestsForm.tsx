@@ -1,11 +1,33 @@
 import React from "react"
 import RequestAssessment from "../component/RequestAssessment"
 import RequestBenchmark from "../component/RequestBenchmark"
+import RequestCancellation from "./RequestCancellation"
+import RequestContractstatus from "./RequestContractStatus"
+import RequestGenerateReport from "./RequestGenerateReport"
+import RequestNegotiate from "./RequestNegotiate"
+import RequestQuestion from "./RequestQuestion"
+import RequestQuotes from "./RequestQuotes"
+import RequestRenewals from "./RequestRenewals"
+import RequestResearch from "./RequestResearch"
+import RequestSavingAnalysis from "./RequestSavingAnalysis"
+import RequestSupplierComparison from "./RequestSupplierComparison"
+import RequestSupplierDemo from "./RequestSupplierDemo"
 
 const RequestsForm = ({ requestType, handleSubmit }) => {
   const typeName = {
     assessment: RequestAssessment,
-    benchmark: RequestBenchmark
+    benchmark: RequestBenchmark,
+    cancellation: RequestCancellation,
+    "contract-status": RequestContractstatus,
+    "generate-reports": RequestGenerateReport,
+    negotiate: RequestNegotiate,
+    quotes: RequestQuotes,
+    renewals: RequestRenewals,
+    research: RequestResearch,
+    "savings-analysis": RequestSavingAnalysis,
+    "supplier-comparisons": RequestSupplierComparison,
+    "supplier-demos": RequestSupplierDemo,
+    "supplier-questions": RequestQuestion
   }
 
   let RequestTypeComponent = typeName[requestType]
