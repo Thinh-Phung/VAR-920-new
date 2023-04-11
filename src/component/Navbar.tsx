@@ -12,7 +12,7 @@ const Navbar = ({ currentPage }) => {
   const handleClick = () => {
     setIsOpenMenu(isOpenMenu === false ? true : false)
   }
-  console.log(currentPage)
+
   return (
     <Disclosure as="nav" className="bg-white sm:bg-[#186582]">
       {({ open }) => (
@@ -43,7 +43,7 @@ const Navbar = ({ currentPage }) => {
                     alt="Your Company"
                   />
                 </div>
-                <div className="hidden sm:ml-6 sm:flex sm:space-x-8 text-white">
+                <div className="hidden sm:ml-6 sm:flex sm:space-x-10 lg:space-x-20 text-white">
                   <a
                     href="/home"
                     className={`inline-flex items-center px-1 pt-1 text-sm font-medium hover:underline underline-offset-1 ${
@@ -77,12 +77,12 @@ const Navbar = ({ currentPage }) => {
                     Buy
                   </a>
                   <a
-                    href="#"
+                    href="/manage"
                     className={`inline-flex items-center px-1 pt-1 text-sm font-medium hover:underline underline-offset-1 ${
-                      currentPage === "manager" ? "underline" : ""
+                      currentPage === "manage" ? "underline" : ""
                     }`}
                   >
-                    Manager
+                    Manage
                   </a>
                   <a
                     href="#"
@@ -213,15 +213,15 @@ const Navbar = ({ currentPage }) => {
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="#"
+                href="/manage"
                 className={`block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500
                 ${
-                  currentPage === "manager"
+                  currentPage === "manage"
                     ? "border-[#186582] text-[#2C87BF] bg-indigo-50"
                     : ""
                 }`}
               >
-                Manager
+                Manage
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"

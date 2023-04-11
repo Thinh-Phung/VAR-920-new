@@ -13,7 +13,7 @@ const FormSelect = ({ onSelect }) => {
 
   return (
     <>
-      <div className="mx-auto w-full md:w-3/5 py-2 px-3">
+      <div className="mx-auto w-full md:w-4/5 py-2 px-3">
         <p className="bg-[#2C87BF] mt-8 text-white py-2 text-base font-bold text-center rounded-t-lg">
           New Request
         </p>

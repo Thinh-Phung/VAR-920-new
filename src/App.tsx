@@ -9,7 +9,7 @@ import Chart from "./pages/Chart"
 import TabTest from "./pages/TabTest"
 import Requests from "./pages/Requests"
 import RequestForm from "./pages/RequestPage"
-
+import Manage from "./pages/Manage"
 function App() {
   return (
     <>
@@ -23,6 +23,7 @@ function App() {
         <Route path="/tab" element={<TabTest />} />
         <Route path="/requests" element={<Requests />} />
         <Route path="/requests-form" element={<RequestForm />} />
+        <Route path="/manage" element={<Manage />} />
       </Routes>
     </>
   )

@@ -39,7 +39,7 @@ const Requests = () => {
   return (
     <>
       <Navbar currentPage={"requests"} />
-      <div className="mt-12 px-0 lg:mx-auto lg:w-4/5 rounded-md border">
+      <div className="w-[95%] mt-12 px-0 mx-auto lg:w-4/5 rounded-md border">
         <div className="py-4 border-b-4">
           <h1 className="text-base text-center font-bold leading-6 text-[#2C3A5B]">
             Requests
@@ -48,9 +48,11 @@ const Requests = () => {
         <div className="mt-2 sm:mt-0 flex justify-center">
           <button
             type="button"
-            className="md:absolute md:right-6 md:top-[7.5rem] lg:absolute lg:right-[8.5rem] lg:top-[7.6rem]
-            xl:absolute xl:right-[10.5rem] xl:top-[7.6rem] 2xl:absolute 2xl:right-[17.8rem] 2xl:top-[7.6rem]
-            rounded-md bg-[#47BABF] py-2 px-6 text-center text-base font-normal text-white shadow-sm hover:bg-teal-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+            className="md:absolute md:right-12 md:top-[7.5rem] lg:right-[8.5rem]
+            xl:right-[11.5rem] 2xl:right-[17.8rem] rounded-md 
+            bg-[#47BABF] py-2 px-6 text-center text-base font-normal text-white 
+            shadow-sm hover:bg-teal-600 focus-visible:outline focus-visible:outline-2 
+            focus-visible:outline-offset-2 focus-visible:outline-teal-600"
             onClick={() => {
               navigate("/requests-form")
             }}
@@ -58,8 +60,7 @@ const Requests = () => {
             New Request
           </button>
         </div>
-
-        <div className="lg:mx-6 flow-root">
+        <div className="flow-root w-[92%] mx-auto">
           <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
             <div className="inline-block min-w-full py-8 align-middle sm:px-6 lg:px-8">
               <p className="bg-[#569FCC] w-full p-3 h-full text-white font-bold text-base text-center rounded-t-lg">
