@@ -5,6 +5,11 @@ import contractIcon from "..//assets/home-page/contract.svg"
 import completeIcon from "..//assets/home-page/complete.svg"
 import Card from "./Card"
 import Table from "./Table"
+import { ChevronUpDownIcon } from "@heroicons/react/24/outline"
+
+const handleClick = () => {
+  //sap xe thu tu
+}
 //data from back end
 const tableTitles = [
   "Order ID",
@@ -60,6 +65,19 @@ const totalContractTableInfo = [
   },
   {
     id: 4,
+    "Order ID": "T07",
+    Product: "MPLS",
+    "Service Name": "MPLS",
+    Supplier: "Nitel",
+    Term: "0",
+    "Contract Date": "01/10/2022",
+    "End Date": "03/14/2022",
+    "Notice Period": "0",
+    MRC: "$1,000",
+    "Annual Spend": "$12,000"
+  },
+  {
+    id: 5,
     "Order ID": "T07",
     Product: "MPLS",
     "Service Name": "MPLS",
@@ -204,7 +222,7 @@ const Oneview = () => {
                 onClick={() => {
                   setActiveTab("total contracts")
                 }}
-                className={`hover:text-[#5C667A] ${
+                className={`hover:text-[#5C667A] text-sm ${
                   activeTab === "total contracts"
                     ? "border-b-4 border-[#2c87bf] text-[#5C667A]"
                     : ""
@@ -225,7 +243,7 @@ const Oneview = () => {
                 onClick={() => {
                   setActiveTab("expired contracts")
                 }}
-                className={`hover:text-[#5C667A] ${
+                className={`hover:text-[#5C667A] text-sm ${
                   activeTab === "expired contracts"
                     ? "border-b-4 border-[#2c87bf] text-[#5C667A]"
                     : ""
@@ -246,7 +264,7 @@ const Oneview = () => {
                 onClick={() => {
                   setActiveTab("expiring in 30 days")
                 }}
-                className={`hover:text-[#5C667A] ${
+                className={`hover:text-[#5C667A] text-sm ${
                   activeTab === "expiring in 30 days"
                     ? "border-b-4 border-[#2c87bf] text-[#5C667A]"
                     : ""
@@ -267,7 +285,7 @@ const Oneview = () => {
                 onClick={() => {
                   setActiveTab("expiring in 60 days")
                 }}
-                className={`hover:text-[#5C667A] ${
+                className={`hover:text-[#5C667A] text-sm ${
                   activeTab === "expiring in 60 days"
                     ? "border-b-4 border-[#2c87bf] text-[#5C667A]"
                     : ""
@@ -288,7 +306,7 @@ const Oneview = () => {
                 onClick={() => {
                   setActiveTab("expiring in 90 days")
                 }}
-                className={`hover:text-[#5C667A] ${
+                className={`hover:text-[#5C667A] text-sm ${
                   activeTab === "expiring in 90 days"
                     ? "border-b-4 border-[#2c87bf] text-[#5C667A]"
                     : ""
@@ -309,7 +327,7 @@ const Oneview = () => {
                 onClick={() => {
                   setActiveTab("cancelled contracts")
                 }}
-                className={`hover:text-[#5C667A] ${
+                className={`hover:text-[#5C667A] text-sm ${
                   activeTab === "cancelled contracts"
                     ? "border-b-4 border-[#2c87bf] text-[#5C667A]"
                     : ""
@@ -320,7 +338,79 @@ const Oneview = () => {
             </div>
           </div>
           <div className="w-[98%] m-auto">
-            <Table tableInfos={tableInfo} tableTitles={tableTitles} />
+            {/* <Table tableInfos={tableInfo} tableTitles={tableTitles} isArrange /> */}
+
+            <div className="flow-root mx-auto py-2">
+              <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
+                <div className="min-w-full py-0 align-middle sm:px-6 lg:px-8">
+                  <div className="overflow-auto">
+                    <table className="min-w-full text-[#5C667A] border-0">
+                      <thead className="bg-[#569FCC]">
+                        <tr>
+                          {tableTitles.map((title) => (
+                            <th className="px-2 py-2 text-center text-sm font-normal">
+                              <div className="group inline-flex gap-0 items-center text-white">
+                                {title}
+                                <span className="ml-2 flex-none rounded text-gray-100">
+                                  <ChevronUpDownIcon
+                                    className="h-6 w-6"
+                                    aria-hidden="true"
+                                    onClick={() => {
+                                      handleClick
+                                    }}
+                                  />
+                                </span>
+                              </div>
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-gray-200 bg-white text-center">
+                        {tableInfo.map((info) => (
+                          <tr key={info["id"]}>
+                            <td className="whitespace-nowrap px-3 py-4 text-sm">
+                              <button
+                                className="text-[#2C87BF] hover:text-black focus:outline-none focus:p-1 focus:rounded-md focus:ring focus:ring-cyan-100"
+                                onClick={() => {}}
+                              >
+                                {info[tableTitles[0]]}
+                              </button>
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[1]]}
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[2]]}
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[3]]}
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[4]]}
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[5]]}
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[6]]}
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[7]]}
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[8]]}
+                            </td>
+                            <td className="whitespace-nowrap px-0 py-0 text-sm">
+                              {info[tableTitles[9]]}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="space-y-4 md:space-y-0 md:grid md:grid-cols-3 md:gap-2 lg:gap-4 xl:gap-6">

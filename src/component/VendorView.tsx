@@ -134,7 +134,7 @@ const VendorView = () => {
                     <thead className="bg-[#f3f7fa]">
                       <tr>
                         {tableTitles.map((title) => (
-                          <th className="px-2 py-4 text-center text-sm font-thin">
+                          <th className="px-2 py-2 text-center text-sm font-thin">
                             <div className="group inline-flex gap-0 items-center text-black">
                               {title}
                               <span className="ml-2 flex-none rounded text-slate-500">
