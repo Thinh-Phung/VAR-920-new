@@ -1,6 +1,19 @@
 import React from "react"
 import Card from "./Card"
 import { ChevronUpDownIcon } from "@heroicons/react/24/outline"
+import {
+  ColumnDirective,
+  ColumnsDirective,
+  PageSettingsModel,
+  TreeGridComponent,
+  Filter,
+  Inject,
+  Page,
+  Sort
+} from "@syncfusion/ej2-react-treegrid"
+import { TextWrapSettingsModel } from "@syncfusion/ej2-grids"
+
+import { totalContractsData, expiredContractsData } from "../Data"
 const tableTitles = [
   "Name",
   "Sites",
@@ -84,6 +97,29 @@ const VendorView = () => {
   const handleClick = () => {
     //sap xe thu tu
   }
+  const pageOptions: PageSettingsModel = { pageSize: 1 }
+  const settings: TextWrapSettingsModel = { wrapMode: "Both" }
+  const customAttributes: any = { class: "customcssHeaderVendorView" }
+  const customizeCell = (args: any) => {
+    if (args.column.field == "orderID") {
+      args.cell.style.color = "#2c87bf"
+    }
+    if (args.column.field == "annualSpend") {
+      args.cell.style.color = "#21ba86"
+    }
+    if (args.column.field != "annualSpend" && args.column.field != "orderID") {
+      args.cell.style.color = "#5c667a"
+    }
+  }
+  function orderIDTemplate(props): any {
+    return (
+      <div>
+        <a target="_blank" href="http://www.google.com">
+          {props.orderID}
+        </a>
+      </div>
+    )
+  }
   return (
     <>
       <div className="space-y-4 lg:space-y-6 bg-slate-50 h-screen">
@@ -125,7 +161,7 @@ const VendorView = () => {
             bgTitle={"bg-[#569fcc]"}
           />
         </div>
-        <div className="rounded-xl bg-white shadow-md shadow-sky-100">
+        {/* <div className="rounded-xl bg-white shadow-md shadow-sky-100">
           <div className="flow-root mx-auto py-4 rounded-xl bg-white px-4">
             <div className="-my-2 -mx-4 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="min-w-full py-2 align-middle sm:px-6 lg:px-8">
@@ -194,6 +230,102 @@ const VendorView = () => {
               </div>
             </div>
           </div>
+        </div> */}
+
+        <div className="rounded-xl p-4 bg-white shadow-md shadow-sky-100">
+          <TreeGridComponent
+            dataSource={totalContractsData}
+            treeColumnIndex={1}
+            allowPaging={false}
+            allowSorting={true}
+            allowTextWrap={true}
+            textWrapSettings={settings}
+            queryCellInfo={customizeCell}
+          >
+            <Inject services={[Page, Sort, Filter]} />
+            <ColumnsDirective>
+              <ColumnDirective
+                field="orderID"
+                headerText="Order ID"
+                width="80"
+                textAlign="Left"
+                template={orderIDTemplate}
+                customAttributes={customAttributes}
+              />
+              <ColumnDirective
+                field="product"
+                headerText="Product"
+                width="100"
+                textAlign="Left"
+                customAttributes={customAttributes}
+              />
+              <ColumnDirective
+                field="serviceName"
+                headerText="Service Name"
+                width="100"
+                textAlign="Left"
+                customAttributes={customAttributes}
+              />
+              <ColumnDirective
+                field="supplier"
+                headerText="Supplier"
+                width="100"
+                textAlign="Left"
+                customAttributes={customAttributes}
+              />
+              <ColumnDirective
+                field="term"
+                headerText="Term"
+                width="80"
+                textAlign="Left"
+                customAttributes={customAttributes}
+              />
+              <ColumnDirective
+                field="contractDate"
+                headerText="Contract Date"
+                width="100"
+                format="yMd"
+                textAlign="Left"
+                customAttributes={customAttributes}
+                type="date"
+              />
+              <ColumnDirective
+                field="endDate"
+                headerText="End Date"
+                width="100"
+                format="yMd"
+                textAlign="Left"
+                customAttributes={customAttributes}
+                type="date"
+              />
+              <ColumnDirective
+                field="noticePeriod"
+                headerText="Notice Period"
+                width="90"
+                textAlign="Left"
+                customAttributes={customAttributes}
+                type="number"
+              />
+              <ColumnDirective
+                field="MRC"
+                headerText="MRC"
+                width="70"
+                textAlign="Left"
+                customAttributes={customAttributes}
+                type="number"
+                format="C0"
+              />
+              <ColumnDirective
+                field="annualSpend"
+                headerText="Annual Spend"
+                width="90"
+                textAlign="Left"
+                customAttributes={customAttributes}
+                type="number"
+                format="C0"
+              />
+            </ColumnsDirective>
+          </TreeGridComponent>
         </div>
       </div>
     </>

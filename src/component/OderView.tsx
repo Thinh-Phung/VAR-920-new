@@ -188,7 +188,7 @@ const OderView = () => {
                         <thead className="bg-[#569FCC]">
                           <tr>
                             {tableTitles.map((title) => (
-                              <th className="px-2 py-2 text-center text-sm font-normal">
+                              <th className="px-1 py-2 text-center text-sm font-normal">
                                 <div className="group inline-flex gap-0 items-center text-white">
                                   {title}
                                 </div>
@@ -199,7 +199,7 @@ const OderView = () => {
                         <tbody className="divide-y divide-gray-200 bg-white text-center">
                           {tableInfo.map((info) => (
                             <tr key={info["id"]}>
-                              <td className="whitespace-nowrap px-3 py-4 text-sm">
+                              <td className="whitespace-nowrap px-1 py-4 text-sm">
                                 <button
                                   className="text-[#2C87BF] hover:text-black focus:outline-none focus:p-1 focus:rounded-md focus:ring focus:ring-cyan-100"
                                   onClick={() => {}}
@@ -207,19 +207,19 @@ const OderView = () => {
                                   {info[tableTitles[0]]}
                                 </button>
                               </td>
-                              <td className="whitespace-nowrap px-2 py-0 text-sm">
+                              <td className="whitespace-nowrap px-1 py-0 text-sm">
                                 {info[tableTitles[1]]}
                               </td>
-                              <td className="whitespace-nowrap px-2 py-0 text-sm">
+                              <td className="whitespace-nowrap px-1 py-0 text-sm">
                                 {info[tableTitles[2]]}
                               </td>
-                              <td className="whitespace-nowrap px-2 py-0 text-sm">
+                              <td className="whitespace-nowrap px-1 py-0 text-sm">
                                 {info[tableTitles[3]]}
                               </td>
-                              <td className="whitespace-nowrap px-2 py-0 text-sm">
+                              <td className="whitespace-nowrap px-1 py-0 text-sm">
                                 {info[tableTitles[4]]}
                               </td>
-                              <td className="whitespace-nowrap px-2 py-0 text-sm">
+                              <td className="whitespace-nowrap px-0s py-0 text-sm">
                                 {info[tableTitles[5]]}
                               </td>
                             </tr>

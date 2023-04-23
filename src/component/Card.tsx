@@ -11,7 +11,7 @@ const Card = ({ title, data, isCurrency, colorTitle, colorData, bgTitle }) => {
     <>
       <div className="w-full h-full">
         <p
-          className={`h-2/5 rounded-t-xl border-b border-slate-300 text-white text-center md:py-1 text-sm lg:text-base shadow-md shadow-sky-100 
+          className={`h-2/5 rounded-t-xl border-b border-slate-300 text-white text-center py-1 md:py-2 text-sm lg:text-base shadow-md shadow-sky-100 
           ${bgTitle} ${colorTitle}`}
         >
           {title}

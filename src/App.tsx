@@ -10,6 +10,8 @@ import TabTest from "./pages/TabTest"
 import Requests from "./pages/Requests"
 import RequestForm from "./pages/RequestPage"
 import Manage from "./pages/Manage"
+import TableSyncfusion from "./pages/TableSyncfusion"
+import TableSyncfusionTest from "./pages/TableSyncfusionTest"
 function App() {
   return (
     <>
@@ -24,6 +26,7 @@ function App() {
         <Route path="/requests" element={<Requests />} />
         <Route path="/requests-form" element={<RequestForm />} />
         <Route path="/manage" element={<Manage />} />
+        <Route path="/table-syncfusion" element={<TableSyncfusionTest />} />
       </Routes>
     </>
   )
